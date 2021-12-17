@@ -1,0 +1,11 @@
+{
+  "dependencies": {
+    "express": "^4.17.1",
+    "express-session": "^1.17.2",
+    "init": "^0.1.2",
+    "knex": "^0.95.14",
+    "morgan": "^1.10.0",
+    "sqlite": "^4.0.23",
+    "sqlite3": "^5.0.2"
+  }
+}

@@ -1,0 +1,20 @@
+POST  http://localhost:3000/api/v1/auth/register
+Content-Type: application/json
+
+{   
+    "userName":"bar12",
+    "password":"bar12",
+    "name":"gnt",
+    "mail_id":"gt@ggg.com",
+    "DOB":"22.55.2000"
+}
+###
+
+POST http://localahost:3000/api/v1/auth/login 
+Content-Type: application/json
+
+{
+    "userName":"bar12",
+    "password":"bar12"
+}
+###
