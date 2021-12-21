@@ -29,6 +29,9 @@ async function updateUserById(id,user) {
 async function deleteUserById(id){
   return await knex("users").del().where("id",id);
 }
+async function getAllUsers(){
+  return await knex("users").select(["id","name","userName","mail_id","DOB"]);
+}
 
 module.exports = {
   createUser,
@@ -36,4 +39,5 @@ module.exports = {
   getUserById,
   updateUserById,
   deleteUserById,
+  getAllUsers,
 };

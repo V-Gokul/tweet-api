@@ -3,17 +3,19 @@ const morgan = require("morgan");
 const session = require("express-session");
 
 const userRouter = require("./controller/users_controller");
+const followRouter = require("./controller/follow-controller");
+const tweetRouter = require("./controller/tweets-controller");
 
 const app = express();
 
 app.use(morgan("combined"));
 
-app.use( 
+app.use(
   session({
     secret: "keybord cat",
     resave: false,
     saveUninitialized: true,
-    cokkie: { secure: false, maxAge: 60000 },
+    cokkie: { secure: false, maxAge: 600000 },
   })
 );
 
@@ -28,7 +30,9 @@ app.use(async function (req, res, next) {
 
 app.use(express.json());
 
-app.use("/api/v1/auth", userRouter); 
-app.use("/api/v1", userRouter);
+// app.use("/api/v1/auth", userRouter);
+app.use("/api/v1/user", userRouter);
+app.use("/api/v1/follow", followRouter);
+app.use("/api/v1/tweets", tweetRouter);
 
 app.listen(3000);

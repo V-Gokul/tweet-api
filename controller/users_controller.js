@@ -1,5 +1,4 @@
 const express = require("express");
-const { route } = require("express/lib/application");
 const router = express.Router();
 const { isLoggedIn } = require("../middleware/auth");
 const usersServices = require("../services/user_services");
@@ -9,7 +8,8 @@ router.post("/register", async (req, res) => {
   console.log("------>>>", user);
   try {
     const newUser = await usersServices.createUser(req.body);
-    res.status(201).send(newUser,{ message: "registerd sucessfully" });
+    res.status(201).send(newUser);
+    // res.status(201).send(newUser,{ message: "registerd sucessfully" });
     // res.send({ message: "registerd sucessfully" });
   } catch (err) {
     if (err.errno === 19) {
@@ -44,7 +44,7 @@ router.post("/login", async (req, res) => {
     res.send({ message: "logged in sucessfully" });
     return;
   }
-  res.status(401).send({ code: 400, message: "user not found" });
+  res.status(401).send({ code: 400, message: "Invalid userName or password" });
 });
 
 router.get("/:id", isLoggedIn, async (req, res) => {
@@ -67,7 +67,7 @@ router.put("/:id", isLoggedIn, async (req, res) => {
     updateData.updated_at = new Date();
     await usersServices.updateUserById(req.user.id, updateData);
     res.status(200).send(await usersServices.getUserById(req.user.id));
-  } catch {
+  } catch (err) {
     if (err.errno === 19) {
       if (user.userName && user.mail_id) {
         res.status(400).send({

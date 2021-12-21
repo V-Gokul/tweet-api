@@ -1,16 +1,16 @@
-POST  http://localhost:3000/api/v1/auth/register
+POST  http://localhost:3000/api/v1/user/register
 Content-Type: application/json
 
 {   
-    "userName":"bar12",
-    "password":"bar12",
-    "name":"gnt",
-    "mail_id":"gt@ggg.com",
-    "DOB":"22.55.2000"
+    "userName":"bar14",
+    "password":"bar14",
+    "name":"queen",
+    "mail_id":"queen@ggg.com",
+    "DOB":"28.45.3000"
 }
 ###
 
-POST http://localahost:3000/api/v1/auth/login 
+POST http://localahost:3000/api/v1/user/login 
 Content-Type: application/json
 
 {
