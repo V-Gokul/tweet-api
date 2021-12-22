@@ -2,11 +2,11 @@ POST  http://localhost:3000/api/v1/user/register
 Content-Type: application/json
 
 {   
-    "userName":"bar14",
-    "password":"bar14",
-    "name":"queen",
-    "mail_id":"queen@ggg.com",
-    "DOB":"28.45.3000"
+    "userName":"abc4",
+    "password":"abc4",
+    "name":"ash",
+    "mail_id":"ash@ggg.com",
+    "DOB":"51.45.3000"
 }
 ###
 
@@ -14,7 +14,9 @@ POST http://localahost:3000/api/v1/user/login
 Content-Type: application/json
 
 {
-    "userName":"bar12",
-    "password":"bar12"
-}
+    "userName":"abc1",
+    "password":"abc1"}
 ###
+
+GET http://localhost:3000/api/v1/follow/followers
+

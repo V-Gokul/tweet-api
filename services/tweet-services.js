@@ -23,8 +23,8 @@ async function getAllTweet(id) {
   return AllTweets;
 }
 
-async function getTweetsById(tweetId) {
-  const tweet = await knex("tweets").select().where("id", tweetId).first();
+async function getTweetsById(id) {
+  const tweet = await knex("tweets").select().where("id", id).first();
   if (!tweet) {
     res.status(404).send({ mesage: "tweet id is not matched" });
   }
@@ -40,4 +40,4 @@ await knex("tweets").del().where("id",id);
 return deleted;
 }
 
-module.exports = { createTweets, getAllTweet, getTweetsById, };
+module.exports = { createTweets, getAllTweet, getTweetsById,deleteTweetById };

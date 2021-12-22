@@ -28,4 +28,13 @@ router.get("/:id", isLoggedIn, isOwnerId, async (req, res) => {
   }
   res.status(200).send(tweet);
 });
+
+router.delete("/:id", isLoggedIn, isOwnerId, async (req, res) => {
+  const tweet = await tweetsServices.deleteTweetById(req.params.id);
+  if (!tweet) {
+    res.status(400).send({ message: " delete id does not exist" });
+  }
+  res.status(200).send(tweet);
+});
+
 module.exports = router;
